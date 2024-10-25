@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-postgres",
+  "version": "1.0.0",
+  "description": "Integrating NodeJs with PostgreSQL using Sequelize ORM",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardoterrao/nodejs-postgres.git"
+  },
+  "author": "leonardoterrao@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonardoterrao/nodejs-postgres/issues"
+  },
+  "homepage": "https://github.com/leonardoterrao/nodejs-postgres#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
