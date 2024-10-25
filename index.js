@@ -1,5 +1,6 @@
 const express = require("express");
 const conn = require("./db/conn");
+const User = require("./models/User");
 
 const app = express();
 
@@ -17,4 +18,11 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(3000);
+conn
+  .sync()
+  .then(() => {
+    app.listen(3000);
+  })
+  .catch((err) => {
+    console.log("error to connect to the database: ", err);
+  });
