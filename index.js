@@ -18,6 +18,16 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post("/users/create", async (req, res) => {
+  const { name, occupation, newsletter } = req.body;
+  
+  await User.create({name, occupation, newsletter})
+
+  res.status(201).json({
+    status: 'success'
+  })
+});
+
 conn
   .sync()
   .then(() => {
