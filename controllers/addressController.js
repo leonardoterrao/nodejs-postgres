@@ -10,3 +10,11 @@ exports.createAddress = async (req, res) => {
     address,
   });
 };
+
+exports.deleteAddress = async (req, res) => {
+  await Address.destroy({ where: { id: req.params.id } });
+
+  res.status(204).json({
+    status: "success"
+  });
+};

@@ -9,4 +9,9 @@ router
   .post(addressController.createAddress);
 
 
+router
+  .route("/:id")
+  .delete(addressController.deleteAddress);
+
+
 module.exports = router;
