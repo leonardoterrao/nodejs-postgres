@@ -1,6 +1,7 @@
 const express = require("express");
 const conn = require("./db/conn");
-const User = require("./models/User");
+
+const userRouter = require('./routes/userRoutes');
 
 const app = express();
 
@@ -12,21 +13,7 @@ app.use(
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.status(200).json({
-    status: "success",
-  });
-});
-
-app.post("/users/create", async (req, res) => {
-  const { name, occupation, newsletter } = req.body;
-  
-  await User.create({name, occupation, newsletter})
-
-  res.status(201).json({
-    status: 'success'
-  })
-});
+app.use('/api/v1/users', userRouter);
 
 conn
   .sync()
