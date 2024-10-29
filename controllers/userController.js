@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const Address = require("../models/Address");
 
 exports.getUsers = async (req, res) => {
   const users = await User.findAll({ raw: true });
@@ -10,8 +11,12 @@ exports.getUsers = async (req, res) => {
 };
 
 exports.getUser = async (req, res) => {
-  const user = await User.findOne({ raw: true, where: { id: req.params.id } });
+  let user = await User.findOne({
+    include: Address,
+    where: { id: req.params.id },
+  });
 
+  user = user.get({ raw: true });
   res.status(200).json({
     status: "success",
     user,
